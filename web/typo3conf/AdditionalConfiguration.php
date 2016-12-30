@@ -43,4 +43,13 @@ if ($relationships) {
             'defaultLifetime' => $lifetime
         ];
     }
+
+    foreach($relationships as $relationName => $relationship) {
+        if(substr($relationName, 0, 4) !== 'solr') {
+            continue;
+        }
+        $languageKey = str_replace('solr-', '', $relationName);
+        $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['solr']['Connections'][$languageKey] = $relationship[0];
+    }
+
 }

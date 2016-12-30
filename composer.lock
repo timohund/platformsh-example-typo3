@@ -4,9 +4,73 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "cebb09a4c8b2a8650cc21cff0e7d77c2",
-    "content-hash": "570f3d4fcb1350cb46fd916157c28d8b",
+    "hash": "ff1292078443246cbd74500d1900edc2",
+    "content-hash": "45913cf326970a8bf23d5e5bfdea3630",
     "packages": [
+        {
+            "name": "apache-solr-for-typo3/solr",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/TYPO3-Solr/ext-solr.git",
+                "reference": "b9fc3186736f0aae34bad0eb3ea9290392b40166"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/TYPO3-Solr/ext-solr/zipball/b9fc3186736f0aae34bad0eb3ea9290392b40166",
+                "reference": "b9fc3186736f0aae34bad0eb3ea9290392b40166",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.0",
+                "typo3/cms": ">=7.6.0"
+            },
+            "replace": {
+                "solr": "self.version",
+                "typo3-ter/solr": "self.version"
+            },
+            "require-dev": {
+                "phpunit/phpunit": ">=4.8.0 <6.0.0"
+            },
+            "type": "typo3-cms-extension",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "6.1.x-dev"
+                },
+                "typo3/cms": {
+                    "cms-package-dir": "{$vendor-dir}/typo3/cms",
+                    "web-dir": ".Build/Web"
+                }
+            },
+            "autoload": {
+                "classmap": [
+                    "Resources/Private/Php/"
+                ],
+                "psr-4": {
+                    "ApacheSolrForTypo3\\Solr\\": "Classes/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Ingo Renner",
+                    "email": "ingo@typo3.org",
+                    "role": "Lead Developer"
+                }
+            ],
+            "description": "Apache Solr for TYPO3",
+            "homepage": "http://www.typo3-solr.com",
+            "keywords": [
+                "TYPO3 CMS",
+                "search",
+                "solr",
+                "typo3"
+            ],
+            "time": "2017-01-23 11:44:26"
+        },
         {
             "name": "bk2k/bootstrap-package",
             "version": "dev-platform",
@@ -1956,6 +2020,12 @@
             "package": "helhum/typo3-console"
         },
         {
+            "alias": "6.1.0-dev",
+            "alias_normalized": "6.1.0.0-dev",
+            "version": "9999999-dev",
+            "package": "apache-solr-for-typo3/solr"
+        },
+        {
             "alias": "7.0",
             "alias_normalized": "7.0.0.0",
             "version": "dev-platform",
@@ -1966,6 +2036,7 @@
     "stability-flags": {
         "typo3/cms": 20,
         "helhum/typo3-console": 20,
+        "apache-solr-for-typo3/solr": 20,
         "bk2k/bootstrap-package": 20
     },
     "prefer-stable": false,

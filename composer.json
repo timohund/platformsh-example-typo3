@@ -29,7 +29,7 @@
     "typo3/cms": "dev-master as 8.5",
     "typo3-ter/introduction": "^2.3",
     "helhum/typo3-console": "dev-master as 3.4",
-
+    "apache-solr-for-typo3/solr": "dev-master as 6.1.0-dev",
     "bk2k/bootstrap-package": "dev-platform as 7.0"
   },
   "autoload": {

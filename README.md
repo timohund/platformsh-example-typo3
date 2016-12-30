@@ -43,3 +43,46 @@ Adding TYPO3 Extensions/composer packages
 Example Development
 -----
 *master* contains stable tested versions and *develop* is the target for PRs
+
+
+Solr Integration
+-----
+Currently there are three cores configured for the solr extension "core_da", "core_de" and "core_en":
+
+The connection settings are added to the TYPO3_CONF_VARS from the platform.sh relation array. By convension the solr relations from .platform.app.yml have the name `solr-<languagekey>`:
+
+They are exposed by the languagekey to TYPO3_CONF_VARS|EXTCONF|solr|Connections|<languagekey> and can be used with TypoScript for configuration:
+
+```
+plugin.tx_solr.solr {
+   scheme = http
+   port = TEXT
+   port {
+      value = 8080
+      override.data = global:TYPO3_CONF_VARS|EXTCONF|solr|Connections|en|port
+   }
+   host = TEXT
+   host {
+      value = solr-en.internal
+      override.data = global:TYPO3_CONF_VARS|EXTCONF|solr|Connections|en|host
+   }
+   path = TEXT
+   path {
+      value = /solr/core_en/
+      override.data = global:TYPO3_CONF_VARS|EXTCONF|solr|Connections|en|path
+   }
+}
+
+[globalVar = GP:L = 1]
+plugin.tx_solr.solr.port.override.data = global:TYPO3_CONF_VARS|EXTCONF|solr|Connections|de|port
+plugin.tx_solr.solr.host.override.data = global:TYPO3_CONF_VARS|EXTCONF|solr|Connections|de|host
+plugin.tx_solr.solr.path.override.data = global:TYPO3_CONF_VARS|EXTCONF|solr|Connections|de|path
+[end]
+
+[globalVar = GP:L = 2]
+plugin.tx_solr.solr.port.override.data = global:TYPO3_CONF_VARS|EXTCONF|solr|Connections|da|port
+plugin.tx_solr.solr.host.override.data = global:TYPO3_CONF_VARS|EXTCONF|solr|Connections|da|host
+plugin.tx_solr.solr.path.override.data = global:TYPO3_CONF_VARS|EXTCONF|solr|Connections|da|path
+[end]
+```
+

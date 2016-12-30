@@ -3,3 +3,32 @@ mysqldb:
     disk: 2048
 rediscache:
     type: redis:3.0
+mysearch:
+    type: solr:6.3
+    disk: 1024
+    configuration:
+      configsets:
+        ext_solr_6_1_0: !archive "solr/configsets/ext_solr_6_1_0"
+      cores:
+        core_da:
+          core_properties: |
+            configSet=ext_solr_6_1_0
+            schema=danish/schema.xml
+            name=core_da
+        core_de:
+          core_properties: |
+            configSet=ext_solr_6_1_0
+            schema=german/schema.xml
+            name=core_de
+        core_en:
+          core_properties: |
+            configSet=ext_solr_6_1_0
+            schema=english/schema.xml
+            name=core_en
+      endpoints:
+        typo3_da_endpoint:
+          core: core_da
+        typo3_de_endpoint:
+          core: core_de
+        typo3_en_endpoint:
+          core: core_en
